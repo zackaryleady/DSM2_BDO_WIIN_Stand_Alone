@@ -62,4 +62,22 @@ From this point the *run_postprocessor!.bat* file will continue automatic execut
 
 ~/postprocessor/genfigreport_output/{ graphs or tables } created and contains *.png* files of graphs/tables saved for injecting into a Word report document  
 
-9.)
+***IF and ONLY IF no ~/bdo_dsm2_app/db.sqlite3 database exists then follow #9 instructions; otherwise skip to #10***  
+
+9.) On the same Windows command-line prompt as the previous *.bat* files have been executed, execute the following command:  
+```>create_app_database!```  
+The *create_app_database!.bat* file executes Django's internal database creation/migration procedures and will create a database at the location ~/bdo_dsm2_app/db.sqlite3 No user input is required.  
+
+***IF and ONLY IF no ~/bdo_dsm2_app/db.sqlite3 database exists then follow #9 instructions; otherwise skip to #10***  
+
+10.) The 4 *.csv* files located at ~/postprocessor/{run_id} should be copy/pasted into the folder ~/Place_New_Data_For_Database_Here    
+
+11.) The *add_data_to_app_database!.bat* file should be executed in the same Windows command-line prompt as before:  
+```>add_data_to_app_database!```  
+No user input is required. This tool takes about 25-30 minutes to execute depending on how fast your hard-drive (HDD vs. SSD) is. Ignore any user runtime warnings about datetime. Once completed the ~/bdo_dsm2_app/db.sqlite3 file should be larger in size (~500 MB).    
+
+12.) The data from the newest DSM2 BDO WIIN Act runs have been now added to your localhost web application / visualization tool. To start the web server execute the *run_webserver!.bat* file:  
+```>run_webserver!```  
+And then navigate to 127.0.0.1:8000 in your Google Chrome Browser.  
+
+***You should see a beautiful web application with your runs***
