@@ -47,11 +47,11 @@ The user should respond with no spacing, such as:
 The user should respond with no spacing and ***must place the name in single quotes ' '***:  
 ```What is the OMR scenario name e.g. 'OMR-7000' or 'OMR-3500', etc.? You must include ' '.?'OMR-7000'```  
 ***Question 3:***  
-```What is the forecast_end date in format YYYY-MM-DD?```  
+```What is the forecast_start date in format YYYY-MM-DD?```  
 The user should respond immediately with no spacing as before:    
 ```What is the forecast_end_date in format YYYY-MM-DD?2019-02-25```  
 ***Question 4:***  
-```What is the forecast_end date in format YYYY-MM-DD?```  
+```What is the forecast_start date in format YYYY-MM-DD?```  
 The user should respond immediately with no spacing as before:    
 ```What is the forecast_end_date in format YYYY-MM-DD?2019-02-25```  
 From this point the *run_postprocessor!.bat* file will continue automatic execution to post-process the DSM2 Modeling results and generate the report figures required. The *run_postprocessor!.bat* tool executes both the ~\postprocessor\dsm2bdoomr_post_pyhecdss.py and the ~\postprocessor\dsm2bdoomr_genfigreport.py tools.  
