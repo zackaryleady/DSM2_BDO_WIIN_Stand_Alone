@@ -126,7 +126,7 @@ class Command(BaseCommand):
         start = time.time()
         tables_folder = options['tables_folder']
         tables_folder_lst = [os.path.join(tables_folder, x)
-                             for x in os.listdir(tables_folder)]
+                             for x in os.listdir(tables_folder) if x.endswith(".csv")]
         table_dict = {"HydroTable": self._fill_hydrotable,
                       "VarSummary": self._fill_varsummarytable,
                       "VarTotal": self._fill_vartotaltable,
