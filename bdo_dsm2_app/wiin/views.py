@@ -31,14 +31,20 @@ class HomePageView(View):
         variable_call = requests.get("http://127.0.0.1:8000/api/variable")
         runid_json = runid_call.json()
         scenario_json = scenario_call.json()
+        #print(scenario_json)
         variable_json = variable_call.json()
         context_dict['run_id'] = json.dumps([x['run_id'] for x in runid_json])
         scen_runid = None
+        scenario_context = []
         for x in scenario_json:
+            #print("x: {}".format(x))
             if not x['scenario'] == 'Baseline':
-                scen_runid = requests.get(x['run_id']).json().get("run_id")
-        context_dict['scenario_id'] = json.dumps([{'scenario': x['scenario'],
-                                                   'run_id': scen_runid}])
+                #print("X FOUND : {}".format(x))
+                scen_runid = requests.get(x["run_id"]).json().get("run_id")
+                #print(scen_runid)
+                scenario_context.append({'scenario': x['scenario'], 'run_id': scen_runid})
+        print(scenario_context)
+        context_dict['scenario_id'] = json.dumps(scenario_context)
         variable_id_lst = []
         for x in variable_json:
             y = x['variable']
